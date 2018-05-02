@@ -5,7 +5,17 @@ authors = ["Mike Cooper <mythmon@gmail.com>"]
 
 [dependencies]
 csv = "1.0.0-beta.5"
-libflate = "*"
+flate2 = { version = "*", features = ["zlib"], default-features = false }
 serde = "*"
 serde_derive = "*"
-chrono = { version = "0.4", features = ["serde"] }
+chrono = { version = "*", features = ["serde"] }
+scoped_threadpool = "*"
+rayon = "*"
+
+[[bin]]
+name = "single_threaded"
+path = "src/single_threaded.rs"
+
+[[bin]]
+name = "rayon"
+path = "src/rayon.rs"
